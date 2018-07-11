@@ -1,0 +1,66 @@
+
+
+<div id="header" class="nav-collapse nav-solid">
+  <div class="row clearfix">
+    <div class="col-1">
+
+      <!--Logo-->
+      <div id="logo">
+
+        <!--Logo that is shown on the banner-->
+        <img src="../assets/images/logo.png" id="banner-logo" alt="Landing Page"/>
+        <!--End of Banner Logo-->
+
+        <!--The Logo that is shown on the sticky Navigation Bar-->
+        <img src="../assets/images/logo-2.png" id="navigation-logo" alt="Landing Page"/>
+        <!--End of Navigation Logo-->
+        <a routerLink="/userlogin" *ngIf='!users'
+         
+        ><img src="../assets/images/L1.jpg" id="navigation-logo" alt="Landing Page" style="position:relative;left:30px;width:100px;height:100px"/>
+        </a>
+        <h5 *ngIf='users'style="position:relative;left:-90px;top:-45px;" ><u>Hi {{users.FirstName}}  </u></h5>
+        <a *ngIf='users'
+         (click)='logout()'
+        ><img src="../assets/images/logout.png" id="navigation-logo" alt="Landing Page" style="position:relative;left:170px;top:-90px;width:100px;height:100px"/>
+        </a>
+        </div>
+      <!--End of Logo-->
+
+      <app-social></app-social>
+
+       <!--Main Navigation-->  <header  class="scrollto clearfix" >
+<nav  >
+  <ul>
+    <li class="active">
+      <a routerLink="/home" (click)=" activetabchanges('home')" [class.active]="activetab === 'home'">Home</a>		
+    <li>
+      <a routerLink="/about" (click)=" activetabchanges('about')" [class.active]="activetab === 'about'">About</a>	
+    <li>
+      <a routerLink="/gallery" (click)=" activetabchanges('gallery')" [class.active]="activetab === 'gallery'">gallery</a>
+    <li>
+      <a routerLink="/blog" (click)=" activetabchanges('blog')" [class.active]="activetab === 'blog'">Blog</a>
+    </li>
+    <li>
+      <a routerLink="/review" (click)=" activetabchanges('review')" [class.active]="activetab === 'review'">Reviews</a>
+    </li>
+    <li>
+      
+      <a routerLink="/partners" (click)=" activetabchanges('partners')" [class.active]="activetab === 'partners'">Partners</a>
+    </li>
+    <li>
+      
+      <a routerLink="/price" (click)=" activetabchanges('price')" [class.active]="activetab === 'price'">Price</a>
+    </li>
+    <li>
+      <a routerLink="/contact" (click)=" activetabchanges('contact')" [class.active]="activetab === 'contact'">ContactUS</a>
+    </li>
+  </ul>
+</nav></header>
+<!--End of Main Navigation-->
+	
+<div id="nav-trigger"><span></span></div>
+<nav id="nav-mobile"></nav>
+
+</div>
+</div>
+</div><!--End of Header-->

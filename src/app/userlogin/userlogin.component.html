@@ -1,0 +1,47 @@
+
+
+ <br>
+ <br>
+ <br>
+ <br><br><div style="margin-left:200px;">
+    <a routerLink="/register">  <p style="margin-left:270px;" >Registration ?</p></a>
+   <h1  style="background-color:rgb(207, 216, 221); color:azure;width:355px" align="Center">User Login</h1></div>
+ <br>
+ <div class="container" >
+    <div class="row"  >
+       <div class="col-md-4">
+          <form [formGroup]="userForm" (ngSubmit)="Save(userForm.value)"  > 
+          <div class="form-group" formGroupName='UserLogin'>
+             <input type="text"   class="form-control" placeholder="enter your username" formControlName="UserName">
+             <div class="alert alert-danger" *ngIf="userForm.controls.UserLogin.controls['UserName'].hasError('required') && userForm.controls.UserLogin.controls.UserName.touched">
+           Username is required
+             </div>
+             <div class="alert alert-danger" *ngIf="userForm.controls.UserLogin.controls['UserName'].hasError('minlength') && userForm.controls.UserLogin.controls.UserName.touched">
+                   Username name must be a 5 characters.
+                     </div>
+              </div>
+
+              <div class="form-group" formGroupName='UserLogin'>
+               <input type="password" class="form-control" placeholder="enter your password"  formControlName="Password">
+             <div class="alert alert-danger" *ngIf="userForm.controls.UserLogin.controls['Password'].hasError('required') && userForm.controls.UserLogin.controls.Password.touched">
+           Password must required
+             </div>
+             <div class="alert alert-danger" *ngIf="!userForm.controls.UserLogin.controls.Password.valid && userForm.controls.UserLogin.controls.Password.touched">
+                   Invalid password
+                               </div>
+                              </div>
+                               
+ 
+        <br>
+          
+ 
+      <button type="submit" class="btn btn-danger btn-md"
+           [disabled]="!userForm.valid"
+          >Login</button>
+          
+          </form>
+       </div>
+      
+    </div>
+ </div>
+ <a routerLink="../home"><p>HOME</p></a> 

@@ -1,0 +1,148 @@
+<div  class="row clearfix ">
+
+<br><div align="center"><h1  style="background-color:rgb(207, 216, 221); color:azure;width:400px">Registration Form</h1></div>
+<br>
+
+<div style="background-color: lightgray;" color="col-md-8" >
+   <br>
+   <form [formGroup]="userForm" (ngSubmit)="Save(userForm.value)" >
+  <div class="row" >
+      
+      <div class="col-sm-2" border="1">
+          <span class="input-group-addon">FirstName</span>
+      </div>  
+        <div class="col-md-8" >
+         <div class="form-group">
+             <input type="text"
+               class="form-control"
+                placeholder="enter your Firstname"
+                 formControlName="FirstName"
+              >
+              <div class="alert alert-danger" *ngIf="userForm.controls['FirstName'].hasError('required') && userForm.controls.FirstName.touched">
+                Firstname is required
+                  </div>
+                  <div class="alert alert-danger" *ngIf="userForm.controls['FirstName'].hasError('minlength') && userForm.controls.FirstName.touched">
+                        Firstname name must be a 5 characters.
+                          </div>
+      
+           </div>  
+         </div>
+         </div>
+   
+
+   <div class="row">
+      <div class="col-sm-2" border="1">
+          <span class="input-group-addon">LastName</span>
+      </div>  
+        <div class="col-md-8">
+  
+           <div class="form-group">
+             <input type="text"
+               class="form-control"
+                placeholder="enter your lastname"
+                 formControlName="LastName"
+              >
+              <div class="alert alert-danger" *ngIf="userForm.controls['LastName'].hasError('required') && userForm.controls.LastName.touched">
+                  Lasttname is required
+                    </div>
+                    <div class="alert alert-danger" *ngIf="userForm.controls['LastName'].hasError('minlength') && userForm.controls.LastName.touched">
+                          Lasttname name must be a 5 characters.
+                            </div>
+           </div>  
+          
+       </div>
+   </div>
+
+   <div class="row">
+      <div class="col-sm-2" border="1">
+          <span class="input-group-addon">EmailId</span>
+      </div>  
+        <div class="col-md-8">
+       
+          
+           <div class="form-group">
+             <input type="text"
+               class="form-control"
+                placeholder="enter your EmailID"
+                 formControlName="EmailId"
+              >
+              <div class="alert alert-danger" *ngIf="userForm.controls['EmailId'].hasError('required') && userForm.controls.EmailId.touched">
+                  EmailID is required
+                    </div>
+                    <div class="alert alert-danger" *ngIf="!userForm.controls.EmailId.valid && userForm.controls.EmailId.touched">
+                        Invalid EmailID
+                                    </div>
+           </div>  
+          
+       </div>
+   </div>
+
+   <div class="row" >
+    <div class="col-sm-2" border="1">
+        <span class="input-group-addon">UserName</span>
+    </div>  
+      <div class="col-md-8">
+     
+          
+         <div class="form-group" formGroupName='UserLogin'>
+           <input type="text"
+          
+             class="form-control"
+              placeholder="enter your Username"
+               formControlName="UserName"
+            >
+            <div class="alert alert-danger" *ngIf="userForm.controls.UserLogin.controls['UserName'].hasError('required') && userForm.controls.UserLogin.controls.UserName.touched">
+              UserName is required
+                </div>
+                <div class="alert alert-danger" *ngIf="!userForm.controls.UserLogin.controls.UserName.valid && 
+              userForm.controls.UserLogin.controls.UserName.touched">
+                    Invalid Username
+                                </div>
+         </div>  
+    
+         </div>
+         </div>
+         
+
+
+   <div class="row">
+      <div class="col-sm-2" border="1">
+          <span class="input-group-addon">Password</span>
+      </div>  
+        <div class="col-md-8">
+       
+            
+           <div class="form-group" formGroupName='UserLogin'>
+             <input type="text"
+               class="form-control"
+                placeholder="enter your Password"
+                 formControlName="Password"
+              >
+              <div class="alert alert-danger" *ngIf="userForm.controls.UserLogin.controls['Password'].hasError('required') && userForm.controls.UserLogin.controls.Password.touched">
+                Password is required 
+                  </div>
+              <div class="alert alert-danger" *ngIf="!userForm.controls.UserLogin.controls.Password.valid && 
+              userForm.controls.UserLogin.controls.Password.touched">
+                    Invalid password
+                                </div>
+           </div>  
+   
+              
+       </div>
+   </div>
+
+
+
+   
+
+           <div  align="center" class="col-sm-2"><button type="submit"  [disabled]="!userForm.valid" class="btn btn-danger btn-md"
+
+            >Submit</button></div>
+   
+  
+  </form>
+  </div>
+
+<br>
+
+</div>
